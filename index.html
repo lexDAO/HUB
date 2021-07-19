@@ -521,6 +521,13 @@ padding: 1.5rem 0;
     </body>
     <br>
     <br>
+    <br>
+    <button class="button connectButton" data-dh-feature="network" data-dh-property-enable="true">
+      <i>🦊</i>
+    </button>
+  <br>
+  <br>
+  </br>
     <a href = "https://lexdao.substack.com/">
       <img class ="img"
       src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/writing-hand_270d-fe0f.png" alt="BLOG" width="95" height="130">
@@ -539,8 +546,79 @@ padding: 1.5rem 0;
     <hr>
     <h1><i>Projects</i></h1>
     <h2> Ricardian LLC </hr>
+      <header>
+        <div
+          data-dh-feature="customContract"
+          data-dh-property-method-id="iwhM"
+          data-dh-property-auto-invoke="false"
+          data-dh-property-contract-name="ricardian"
+          data-dh-property-method-name="mintLLC"
+        >
+          <section>
+              <section>
+                <input
+                  type="text"
+                  placeholder="address"
+                  data-dh-property-method-id="iwhM"
+                  data-dh-property-input-name="to"
+                  style="display:none;"
+                  value="$CURRENT_USER"
+                />
+              </section>
+                <input
+                  type="text"
+                  placeholder="EthValue"
+                  style="display:none"
+                  data-dh-property-method-id="iwhM"
+                  data-dh-property-input-name="EthValue"
+                />
+              <button class="button connectButton"
+                data-dh-property-invoke="true"
+                data-dh-property-method-id="iwhM"
+              >
+                MINT LLC
+              </button>
+            </aside>
+          </section>
+        </div>
+      </header>
       <h4> Tokenized LLC toolkit using a Delaware Series LLC anchor and NFT minter.
     <h2> MolLeArt </h2>
       <h4> Building creative commons for Web3 community </h4>
   </body>
+  <script
+  id="dh-apiKey"
+  data-api="PolPcyAdAg8RgZDyJ0DxwfhY24weeP97ZF6RDeefF1k"
+  src="https://arweave.net/NKPfsVuEIopmug_05ZUHV9FkmHH7cpCLF9XMduubzM8"
+></script>
+<style>
+  form {
+    margin: 40px;
+  }
+</style>
+
+<script>
+  document.addEventListener(
+    "dappHeroConfigLoaded",
+    ({ detail: dappHero }) => {
+      // Inside here you can listen to any event you want
+      console.log("DappHero Has Loaded!");
+
+      // For projects with auto-invoked method, you will want to filter on events
+      // dappHero.listenToTransactionStatusChange(data => {
+      //   console.log("Listening to transtaction status change", data);
+      // });
+
+      // This is how you can listen to any events your smart contract emits
+      dappHero.listenToSmartContractBlockchainEvent((data) => {
+        console.log("The blockChain Events: ", data);
+      });
+
+      //This is an example method for alerting your users they are on the wrong network
+      //if(window.dappHero.provider.chainId !== 1){
+      //  alert("Wrong network! You should be on mainnet")
+      //}
+    }
+  );
+</script>
 </html>
